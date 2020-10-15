@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{%load staticfiles%}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+     integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/movie.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+
+
+
+
+     </head>
+       <h1>Movies Information</h1>
+  <body>
+
+      {%if movies_list%}
+        <table>
+          <thead>
+            <th>Release Date</th>
+            <th>Movie Name</th>
+            <th>Director</th>
+            <th>Genre</th>
+            <th>Rating</th>
+          </thead>
+
+          {%for movie in movies_list%}
+          <tr>
+            <td>{{movie.rdate}}</td>
+            <td>{{movie.moviename}}</td>
+            <td>{{movie.director}}</td>
+            <td>{{movie.genre}}</td>
+            <td>{{movie.rating}}</td>
+
+          </tr>
+          {% endfor  %}
+        </table>
+        {%else %}
+        <p>No Movie Record Found</p>
+        {%endif%}
+         </body>
+</html>
